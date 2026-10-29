@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConnectVM.com — Website Content & SEO Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Markdown typography styling */
+    .markdown-body h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .markdown-body h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-top: 2.25rem;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .light-mode .markdown-body h2 { color: #0f172a; }
+    .markdown-body h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #38bdf8;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .light-mode .markdown-body h3 { color: #0284c7; }
+    .markdown-body p {
+      color: #cbd5e1;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .light-mode .markdown-body p { color: #334155; }
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      color: #cbd5e1;
+    }
+    .light-mode .markdown-body ul, .light-mode .markdown-body ol { color: #334155; }
+    .markdown-body ul { list-style-type: disc; }
+    .markdown-body ol { list-style-type: decimal; }
+    .markdown-body li {
+      margin-bottom: 0.45rem;
+      line-height: 1.65;
+    }
+    .markdown-body strong {
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+    .light-mode .markdown-body strong { color: #0f172a; }
+    .markdown-body blockquote {
+      border-left: 4px solid #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 0.85rem 1.25rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 1.25rem 0;
+    }
+    .markdown-body hr {
+      border-color: rgba(148, 163, 184, 0.15);
+      margin: 2rem 0;
+    }
+    .markdown-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.925rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+    .markdown-body th {
+      background: rgba(30, 41, 59, 0.9);
+      color: #38bdf8;
+      font-weight: 600;
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+    .light-mode .markdown-body th {
+      background: #f1f5f9;
+      color: #0369a1;
+    }
+    .markdown-body td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      color: #e2e8f0;
+    }
+    .light-mode .markdown-body td { color: #1e293b; }
+    .markdown-body tr:nth-child(even) td {
+      background: rgba(30, 41, 59, 0.35);
+    }
+    .light-mode .markdown-body tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    .markdown-body code {
+      background: rgba(15, 23, 42, 0.75);
+      color: #7dd3fc;
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.3rem;
+      font-size: 0.85em;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .light-mode .markdown-body code {
+      background: #f1f5f9;
+      color: #0369a1;
+      border-color: #cbd5e1;
+    }
+    .markdown-body pre {
+      background: #0f172a;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      overflow-x: auto;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      margin: 1.25rem 0;
+    }
+    .markdown-body pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: #e2e8f0;
+    }
+    .mermaid-wrapper {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-sky-500 selection:text-white">
+
+  <!-- Top Navbar with Interactive Product Mega-Menu Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/90 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand -->
+        <div class="flex items-center gap-3 cursor-pointer" onclick="selectPage('01-homepage')">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-400 to-indigo-600 flex items-center justify-center font-extrabold text-white shadow-lg shadow-sky-500/20">
+            C
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-lg tracking-tight text-white">ConnectVM<span class="text-sky-400">.com</span></span>
+              <span class="text-[11px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/30">Content & SEO Portal</span>
+            </div>
+            <p class="text-xs text-slate-400 hidden sm:block">Enterprise Cloud Content Suite • White-Labeled & SEO-Optimized</p>
+          </div>
+        </div>
+
+        <!-- Search & Actions -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="relative hidden md:block">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search across all 13 pages..."
+              oninput="handleSearch(this.value)"
+              class="w-64 bg-slate-800/90 border border-slate-700 text-sm rounded-lg pl-9 pr-3 py-1.5 text-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-400"
+            />
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+
+          <button onclick="toggleViewMode()" id="viewModeBtn" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+            <span>📝</span> <span id="viewModeLabel">Raw Markdown</span>
+          </button>
+
+          <button onclick="copyCurrentMarkdown()" id="copyBtn" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 hover:bg-sky-400 text-slate-950 transition shadow-sm flex items-center gap-1.5">
+            <span>📋</span> <span id="copyBtnText">Copy Page .MD</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Navigation Bar (Exact 10-Category Product List) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto py-2 border-t border-slate-800/80 no-scrollbar text-xs">
+        <span class="text-slate-400 font-medium mr-1 shrink-0">Products ›</span>
+        <button onclick="selectPage('00-product-catalog-featured')" data-nav="00-product-catalog-featured" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">⭐ Featured</button>
+        <button onclick="selectPage('02-compute')" data-nav="02-compute" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🖥️ Compute</button>
+        <button onclick="selectPage('03-sap-solutions')" data-nav="03-sap-solutions" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🏢 SAP</button>
+        <button onclick="selectPage('04-storage')" data-nav="04-storage" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">💾 Storage</button>
+        <button onclick="selectPage('05-networking-and-public-ip')" data-nav="05-networking-and-public-ip" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🌐 Networking & Public IP</button>
+        <button onclick="selectPage('06-database')" data-nav="06-database" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🗄️ Database</button>
+        <button onclick="selectPage('07-security')" data-nav="07-security" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🛡️ Security</button>
+        <button onclick="selectPage('08-ai-and-ml')" data-nav="08-ai-and-ml" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">🤖 AI & ML</button>
+        <button onclick="selectPage('09-analytics')" data-nav="09-analytics" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">📊 Analytics</button>
+        <button onclick="selectPage('10-management')" data-nav="10-management" class="nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium transition">⚙️ Management</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col lg:flex-row gap-6 px-4 sm:px-6 lg:px-8 py-6">
+    
+    <!-- Left Sidebar: Full Sitemap -->
+    <aside class="lg:w-72 shrink-0">
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 sticky top-32">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400">Website Sitemap (13 Pages)</h2>
+          <span class="text-[11px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">SEO Ready</span>
+        </div>
+        <nav id="sidebarNav" class="space-y-1 max-h-[70vh] overflow-y-auto pr-1"></nav>
+      </div>
+    </aside>
+
+    <!-- Right Content Area -->
+    <main class="flex-1 min-w-0">
+      <!-- Search Results Banner (Hidden by default) -->
+      <div id="searchResultsBox" class="hidden mb-6 bg-slate-900 border border-sky-500/40 rounded-xl p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-semibold text-sky-400" id="searchCountText">Search Results</h3>
+          <button onclick="clearSearch()" class="text-xs text-slate-400 hover:text-white">Clear ✕</button>
+        </div>
+        <div id="searchResultsList" class="space-y-2 max-h-60 overflow-y-auto"></div>
+      </div>
+
+      <!-- Current File Header Bar -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-t-xl px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span id="currentPageIcon" class="text-2xl">🏠</span>
+          <div>
+            <h2 id="currentPageLabel" class="text-base font-bold text-white">Homepage</h2>
+            <p id="currentPageFilename" class="text-xs font-mono text-sky-400">01-homepage.md</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span id="wordCountBadge" class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700 font-mono">0 words</span>
+          <a id="downloadMdBtn" href="#" download class="px-3 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+            ⬇ Download .md
+          </a>
+        </div>
+      </div>
+
+      <!-- Rendered Markdown OR Raw Markdown Box -->
+      <div class="bg-slate-900/60 border border-t-0 border-slate-800 rounded-b-xl p-6 sm:p-10 shadow-2xl">
+        <div id="renderedContent" class="markdown-body"></div>
+        <pre id="rawContent" class="hidden text-xs font-mono text-slate-200 bg-slate-950 p-6 rounded-xl border border-slate-800 overflow-x-auto whitespace-pre-wrap"></pre>
+      </div>
+
+      <!-- Prev / Next Footer Navigation -->
+      <div class="mt-6 flex items-center justify-between gap-4">
+        <button id="prevPageBtn" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-medium text-slate-300 transition flex items-center gap-2">
+          ← Previous Page
+        </button>
+        <button id="nextPageBtn" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-xs font-medium text-slate-300 transition flex items-center gap-2">
+          Next Page →
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const PAGES = [{"id": "01-homepage", "filename": "01-homepage.md", "category": "Homepage", "icon": "\ud83c\udfe0", "label": "Homepage (/)", "content": "# Homepage \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** ConnectVM | High-Performance Cloud Virtual Machines & Infrastructure\n- **Meta Description:** Deploy ultra-fast Cloud Virtual Machines in seconds. ConnectVM delivers dedicated NVMe block storage, isolated VPC networking, portable Public IPs, and predictable pricing.\n- **Primary Keywords:** cloud virtual machines, cloud compute platform, enterprise VPS hosting, scalable cloud infrastructure, NVMe cloud servers, virtual private cloud\n- **URL Slug:** `/`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** NEXT-GENERATION CLOUD INFRASTRUCTURE\n**H1:** Deploy High-Performance Cloud Virtual Machines in Seconds.\n**Subheadline:** Build, scale, and manage mission-critical applications on enterprise-grade cloud infrastructure. Enjoy blazing-fast NVMe storage, isolated private networking, portable Public IPs, and full API control\u2014without hyperscaler complexity or unpredictable bills.\n\n**Primary CTA:** Deploy Your First VM \u2192\n**Secondary CTA:** Explore Pricing & Plans | Talk to an Architect\n\n**Trust Badges / Highlights:**\n- \u26a1 **Sub-60 Second Provisioning**\n- \ud83d\udee1\ufe0f **99.99% Uptime SLA**\n- \ud83d\udd12 **Isolated VPC & Stateful Firewalls**\n- \ud83d\udcbe **3x Replicated NVMe Storage**\n\n---\n\n## 2. Value Proposition Section (Why ConnectVM?)\n\n**Eyebrow:** ENGINEERED FOR SPEED & RELIABILITY\n**H2:** Enterprise Cloud Power. Developer-First Simplicity.\n**Body:** Traditional hyperscalers lock you into complex billing models and noisy multi-tenant environments. ConnectVM gives you raw, predictable compute performance and software-defined networking through a clean, intuitive control panel and automation-ready API.\n\n### 3 Core Pillars:\n1. **True Hardware Isolation (KVM Virtualization)**\n   Every ConnectVM instance runs on enterprise hypervisors with strict kernel-level isolation. Your CPU, memory, and I/O resources are dedicated to your workloads\u2014eliminating \"noisy neighbor\" slowdowns.\n2. **Software-Defined Networking & Portable Public IPs**\n   Design multi-tier network topologies with complete ease. Create isolated private networks, configure granular security groups, and dynamically reassign Public IPs across instances for zero-downtime failover.\n3. **Distributed, Self-Healing NVMe Storage**\n   Decouple your data from your compute. Our persistent block storage volumes are triple-replicated across physical nodes, delivering extreme IOPS and enterprise durability out of the box.\n\n---\n\n## 3. Core Platform Features Grid\n\n**Eyebrow:** EVERYTHING YOU NEED TO SCALE\n**H2:** A Complete Cloud Ecosystem Built for Modern Workloads\n\n### Compute Instances\nLaunch Linux or Windows virtual machines sized for any workload\u2014from lightweight microservices to memory-intensive databases. Scale vertically in clicks or horizontally across availability zones.\n\n### Dedicated & Portable Public IPs\nReserve static IPv4 addresses to your account and map them to any VM on demand. Remap traffic between primary and standby instances in seconds without waiting for DNS propagation.\n\n### Virtual Private Cloud (VPC)\nRun your backend databases and internal services on completely isolated Layer-2/Layer-3 private networks. Control ingress and egress routing through managed virtual routers and NAT gateways.\n\n### Persistent NVMe Block Storage\nAttach up to multiple terabytes of high-speed block storage to any instance. Expand volume capacity on the fly and move volumes seamlessly between virtual machines.\n\n### Instant Snapshots & Cloning\nCapture point-in-time snapshots of your root disks and data volumes before critical updates. Restore instances in seconds or convert snapshots into reusable golden images.\n\n### Granular Security Groups\nProtect your infrastructure at the virtual NIC level. Define stateful ingress and egress firewall rules by IP CIDR, protocol, Port, or security group membership\u2014applied instantaneously.\n\n### Cloud-Init & Custom Images\nAutomate server bootstrapping with SSH keys, user-data scripts, and Cloud-Init templates. Upload your own hardened qcow2, raw, or ISO images for full compliance.\n\n### Full REST API & CLI Automation\nTreat your infrastructure as code. Provision VMs, attach volumes, and manage firewall rules programmatically via our RESTful API and DevOps tool integrations.\n\n---\n\n## 4. High-Impact Use Cases Section\n\n**Eyebrow:** BUILT FOR EVERY WORKLOAD\n**H2:** What Can You Build on ConnectVM?\n\n| Use Case | How ConnectVM Powers It |\n| :--- | :--- |\n| **SaaS & Web Applications** | Host high-traffic web apps behind portable Public IPs with isolated backend database tiers and scalable NVMe storage. |\n| **High-Performance Databases** | Run PostgreSQL, MySQL, MongoDB, and Redis on high-memory instances backed by low-latency, triple-replicated block volumes. |\n| **Dev, Test & Staging Environments** | Spin up exact clones of production environments using instant volume snapshots, and tear them down when testing is complete to save costs. |\n| **CI/CD & DevOps Pipelines** | Dynamically launch ephemeral build runners via API with Cloud-Init scripts for automated testing and container builds. |\n| **Enterprise ERP & Custom Apps** | Bring your own custom OS images or Windows Server licenses and deploy them inside secure, private network segments. |\n\n---\n\n## 5. How It Works (3-Step Flow)\n\n**H2:** From Zero to Production in Under 60 Seconds\n\n1. **Choose Your OS or Custom Image**\n   Select from pre-hardened Linux distributions (Ubuntu, Debian, AlmaLinux, Rocky Linux), Windows Server, or upload your own custom image.\n2. **Select Your Compute & Storage Profile**\n   Pick the exact vCPU and RAM ratio your workload requires, attach additional persistent NVMe block volumes, and select your SSH keys.\n3. **Configure Networking & Launch**\n   Place your VM in an isolated private network, apply a stateful security group, attach a reserved Public IP, and hit deploy.\n\n---\n\n## 6. Frequently Asked Questions (SEO Schema Ready)\n\n**Q: How fast are ConnectVM virtual machines provisioned?**\nA: Standard Linux virtual machines deploy and become reachable via SSH in under 45\u201360 seconds.\n\n**Q: Can I keep my Public IP address if I delete or replace my VM?**\nA: Yes. On ConnectVM, Public IPs are reserved to your account as independent network resources. You can detach a Public IP from one VM and attach it to another at any time without losing the IP address.\n\n**Q: Is my data safe if a physical hardware node fails?**\nA: Yes. ConnectVM uses distributed, triple-replicated block storage. Every write is synchronously replicated across multiple separate storage nodes, protecting your data against hardware drive or server failures.\n\n**Q: Can I upgrade my VM resources or storage as my traffic grows?**\nA: Absolutely. You can resize your VM's vCPU and RAM plan or expand your attached block storage volumes directly from the ConnectVM dashboard.\n\n**Q: Do I get full root or administrator access?**\nA: Yes. Every Linux VM includes full `root` / `sudo` SSH access, and every Windows VM includes full Administrator RDP access, along with an out-of-band web VNC console for emergency recovery.\n\n---\n\n## 7. Bottom Call-to-Action (CTA)\n\n**H2:** Ready to Experience Cloud Infrastructure That Just Works?\n**Subheadline:** Start building on ConnectVM today with transparent pricing, enterprise reliability, and 24/7 engineering support.\n**Primary CTA:** Create Your Free Account \u2192\n**Secondary CTA:** Contact Sales for Custom Deployments\n"}, {"id": "00-product-catalog-featured", "filename": "00-product-catalog-featured.md", "category": "Featured", "icon": "\u2b50", "label": "Featured & Mega-Menu", "content": "# Featured Products & Navigation Mega-Menu \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Products & Infrastructure Catalog | ConnectVM\n- **Meta Description:** Explore ConnectVM's full suite of cloud infrastructure products: Compute VMs, SAP Hosting, NVMe Storage, VPC Networking & Public IPs, Databases, AI/ML GPUs, Analytics, and Security.\n- **Primary Keywords:** cloud infrastructure products, enterprise cloud platform, cloud compute storage networking, SAP cloud hosting, AI GPU cloud\n- **URL Slug:** `/products`\n\n---\n\n## 1. Website Mega-Menu Structure (UI Copy)\n\nUse this copy directly inside the top navigation dropdown (`Products \u203a`):\n\n### \u2b50 Featured\n- **Cloud Virtual Machines** \u2014 Deploy high-speed Linux & Windows VMs in under 60 seconds.\n- **NVMe Block Storage** \u2014 Triple-replicated, persistent high-IOPS storage volumes.\n- **Portable Public IPs & VPC** \u2014 Static IPv4 addresses with instant failover & isolated private networks.\n- **SAP Cloud Hosting** \u2014 High-memory, mission-critical cloud environments engineered for SAP workloads.\n- **AI & GPU Compute** \u2014 Dedicated GPU acceleration for private LLMs, inference, and deep learning.\n\n### \ud83d\udda5\ufe0f Compute\n- **General Purpose VMs** \u2014 Balanced vCPU and RAM for web apps and middleware.\n- **Compute-Optimized VMs** \u2014 High-frequency processors for CPU-intensive workloads.\n- **Memory-Optimized VMs** \u2014 Up to\u6570\u767eGB+ RAM for large databases and in-memory workloads.\n- **Dedicated Bare Metal** \u2014 Single-tenant physical servers with zero virtualization overhead.\n- **Container & Kubernetes Ready** \u2014 Pre-tuned nodes for Docker and Kubernetes clusters.\n\n### \ud83c\udfe2 SAP\n- **SAP Business One on Cloud** \u2014 Turnkey, high-availability hosting for growing enterprises.\n- **SAP HANA & S/4HANA Infrastructure** \u2014 Certified-grade high-memory instances with ultra-low storage latency.\n- **SAP Disaster Recovery & Backup** \u2014 Automated snapshots, off-site replication, and rapid RTO/RPO failover.\n\n### \ud83d\udcbe Storage\n- **NVMe Block Storage** \u2014 Hot-attach, resizable persistent volumes with 3x replication.\n- **Object Storage (S3-Compatible)** \u2014 Infinitely scalable storage for backups, media, and data lakes.\n- **Shared File Storage (NFS)** \u2014 Multi-attach network file shares for clustered applications.\n- **Instant Snapshots & Backups** \u2014 Point-in-time volume recovery and automated backup schedules.\n\n### \ud83c\udf10 Networking\n- **Portable Public IPs** \u2014 Account-reserved static IPv4 addresses with instant 1:1 NAT reassignment.\n- **Virtual Private Cloud (VPC)** \u2014 Isolated Layer-2/Layer-3 private networks and custom subnets.\n- **Cloud Load Balancers** \u2014 High-availability Layer-4/Layer-7 traffic distribution and SSL termination.\n- **Virtual Routers & SNAT** \u2014 Managed routing and secure outbound internet access for private VMs.\n- **Site-to-Site IPsec VPN** \u2014 Encrypted hybrid cloud connectivity between your office/data center and ConnectVM.\n\n### \ud83d\uddc4\ufe0f Database\n- **Relational Databases (PostgreSQL / MySQL)** \u2014 High-IOPS compute and storage tuned for ACID transactions.\n- **NoSQL Databases (MongoDB / Cassandra)** \u2014 Horizontally scalable document and wide-column data stores.\n- **In-Memory Caching (Redis / Valkey)** \u2014 Sub-millisecond caching for real-time applications.\n- **High-Availability DB Clusters** \u2014 Active-passive and multi-node replication across anti-affinity hosts.\n\n### \ud83d\udee1\ufe0f Security\n- **Stateful Security Groups** \u2014 Instant virtual NIC firewalls with zero-trust micro-segmentation.\n- **DDoS Protection** \u2014 Always-on volumetric and protocol attack mitigation at the network edge.\n- **Identity & Access Management (IAM)** \u2014 Multi-user project isolation and Role-Based Access Control (RBAC).\n- **SSH Key & Secrets Management** \u2014 Automated credential injection and encrypted volume support.\n\n### \ud83e\udd16 AI & ML\n- **Cloud GPU Instances** \u2014 Dedicated GPU acceleration for training and fine-tuning.\n- **Private LLM & Inference Hosting** \u2014 Run Llama, Mistral, and custom models inside your isolated VPC.\n- **Vector Database Hosting** \u2014 High-memory infrastructure for Qdrant, Milvus, and pgvector RAG pipelines.\n- **Data Science Workspaces** \u2014 Pre-configured Jupyter, PyTorch, and TensorFlow environments.\n\n### \ud83d\udcca Analytics\n- **Real-Time OLAP (ClickHouse / Druid)** \u2014 Blazing-fast analytical queries over billions of rows.\n- **Log & Search Analytics (OpenSearch / ELK)** \u2014 Centralized log ingestion, APM, and full-text search.\n- **Event Streaming (Apache Kafka / Redpanda)** \u2014 High-throughput message brokers for real-time data pipelines.\n- **Data Warehouse Infrastructure** \u2014 Scalable compute and object storage for modern ELT stacks.\n\n### \u2699\ufe0f Management\n- **ConnectVM Cloud Console** \u2014 Intuitive single-pane-of-glass web dashboard with HTML5 VNC access.\n- **REST API & CLI** \u2014 Full programmatic control over compute, network, and storage resources.\n- **Infrastructure as Code (IaC)** \u2014 Native support for Cloud-Init, Ansible, and Terraform workflows.\n- **Resource Telemetry & Audit Logs** \u2014 Real-time CPU/Disk/Network metrics and governance activity tracking.\n\n---\n\n## 2. Featured Products Hero Section (On `/products` Page)\n\n**Eyebrow:** THE CONNECTVM CLOUD PORTFOLIO\n**H1:** Everything You Need to Build, Run, and Scale in the Cloud.\n**Subheadline:** Explore our complete suite of enterprise cloud services\u2014from sub-minute virtual machines and SAP-grade infrastructure to portable Public IPs, 3x-replicated NVMe storage, and private AI compute.\n\n**Primary CTA:** Start Deploying Now \u2192\n**Secondary CTA:** Contact Enterprise Sales\n"}, {"id": "02-compute", "filename": "02-compute.md", "category": "Compute", "icon": "\ud83d\udda5\ufe0f", "label": "Compute", "content": "# Compute \u2014 Cloud Virtual Machines & Instances \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Compute Instances & Virtual Machines (Linux & Windows) | ConnectVM\n- **Meta Description:** Deploy high-performance Cloud Compute instances in seconds. Choose from General Purpose, Compute-Optimized, Memory-Optimized VMs, and Dedicated Bare Metal on ConnectVM.\n- **Primary Keywords:** cloud compute instances, Linux virtual machines, Windows cloud servers, KVM cloud hosting, dedicated vCPU cloud, bare metal cloud\n- **URL Slug:** `/products/compute`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM COMPUTE\n**H1:** Elastic Cloud Compute Engineered for Predictable Performance.\n**Subheadline:** Launch fully isolated Linux and Windows virtual machines in under 60 seconds. Powered by high-frequency enterprise processors, ECC memory, and non-blocking NVMe storage\u2014built to handle everything from microservices to mission-critical enterprise workloads.\n\n**Primary CTA:** Deploy Compute Instance \u2192\n**Secondary CTA:** View Instance Sizing\n\n---\n\n## 2. Compute Product Lineup\n\n**Eyebrow:** TAILORED INSTANCE FAMILIES\n**H2:** Right-Sized Compute for Every Workload\n\n### 1. General Purpose VMs\nBalanced vCPU-to-RAM ratios designed for consistent everyday performance across diverse workloads.\n- **Ideal Use Cases:** Production web servers, SaaS backends, containerized apps, CMS platforms, mid-sized relational databases.\n\n### 2. Compute-Optimized VMs\nHigh-frequency vCPUs engineered for CPU-bound applications requiring maximum single-core turbo speeds and multi-threaded throughput.\n- **Ideal Use Cases:** High-traffic API gateways, CI/CD build agents, media transcoding, real-time ad serving, scientific simulations.\n\n### 3. Memory-Optimized VMs\nHigh-memory configurations designed to keep massive datasets, indexes, and caches in RAM without swapping to disk.\n- **Ideal Use Cases:** Large PostgreSQL/MySQL databases, SAP workloads, Redis/Memcached clusters, real-time big data processing.\n\n### 4. Dedicated CPU & Bare Metal Instances\nSingle-tenant compute with zero resource contention and 100% dedicated physical cores for strict compliance and extreme performance.\n- **Ideal Use Cases:** Financial trading systems, regulated healthcare/fintech workloads, noisy-neighbor-sensitive databases, custom hypervisors.\n\n---\n\n## 3. Core Technical Features\n\n### True Hardware Virtualization (KVM)\nEvery ConnectVM instance runs with strict kernel-level hardware isolation. Load custom Linux kernel modules, run Docker or Kubernetes clusters, configure WireGuard/IPsec tunnels, and enforce custom security policies without container-level limitations.\n\n### Sub-Minute Provisioning & Cloud-Init\nAutomate instance bootstrapping at launch. Pass Cloud-Init user-data scripts, inject SSH keys, configure hostnames, and trigger Ansible or bash provisioning scripts automatically on first boot.\n\n### Custom OS Images & ISO Mounting\nChoose from our verified library of Linux distributions (Ubuntu, Debian, AlmaLinux, Rocky Linux, CentOS, Fedora) and Windows Server editions\u2014or upload your own hardened `qcow2`, `raw`, or bootable `ISO` images.\n\n### Server Groups: Affinity & Anti-Affinity\nControl how your VMs are placed on physical hardware:\n- **Anti-Affinity:** Automatically place redundant web nodes or database replicas on separate physical servers so a single hardware fault never takes down your cluster.\n- **Affinity:** Co-locate tightly coupled compute nodes to minimize inter-node network latency.\n\n### Live Lifecycle Control & Out-of-Band Console\n- **Vertical Scaling:** Resize vCPU and RAM allocations as your workload grows.\n- **HTML5 Web VNC Console:** Access your server's screen and keyboard directly through your browser for emergency recovery, even if SSH or internal networking is down.\n- **Rescue Mode & Rebuild:** Boot into a temporary recovery OS to repair filesystems or re-image a server while retaining its assigned IP addresses.\n\n---\n\n## 4. Compute Use Cases\n\n| Workload | Recommended Compute Family | Key Benefit |\n| :--- | :--- | :--- |\n| **Web & API Microservices** | General Purpose | Cost-effective horizontal scaling behind Cloud Load Balancers |\n| **CI/CD & DevOps Runners** | Compute-Optimized | Up to 40% faster compile and container build times |\n| **High-Concurrency Databases** | Memory-Optimized | Large buffer pools in RAM with 3x-replicated NVMe disks |\n| **Staging & QA Sandboxes** | General Purpose | Spin up from snapshots on demand; destroy when finished to cut costs |\n\n---\n\n## 5. Call-to-Action\n\n**H2:** Ready to Launch Your Next Compute Instance?\n**Subheadline:** Deploy in seconds with full root access, isolated VPC networking, and transparent monthly or hourly billing.\n**Primary CTA:** Launch a Virtual Machine \u2192\n"}, {"id": "03-sap-solutions", "filename": "03-sap-solutions.md", "category": "SAP", "icon": "\ud83c\udfe2", "label": "SAP Solutions", "content": "# SAP Cloud Solutions \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** SAP Cloud Hosting | SAP Business One, HANA & S/4HANA Infrastructure | ConnectVM\n- **Meta Description:** Run mission-critical SAP workloads on ConnectVM. High-memory virtual machines, ultra-low-latency NVMe block storage, isolated VPC security, and automated disaster recovery for SAP.\n- **Primary Keywords:** SAP cloud hosting, SAP Business One cloud, SAP HANA cloud infrastructure, SAP S/4HANA hosting, enterprise ERP cloud, high memory VM for SAP\n- **URL Slug:** `/products/sap`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM FOR SAP\n**H1:** Enterprise-Grade Cloud Infrastructure Purpose-Built for SAP Workloads.\n**Subheadline:** Migrate and run SAP Business One, SAP HANA, and SAP NetWeaver/S/4HANA landscapes with confidence. ConnectVM combines high-memory compute instances, sub-millisecond triple-replicated NVMe storage, and isolated private networking\u2014delivering rock-solid ERP performance at a fraction of hyperscaler costs.\n\n**Primary CTA:** Talk to an SAP Cloud Architect \u2192\n**Secondary CTA:** Request Custom SAP Sizing\n\n---\n\n## 2. Why Run SAP on ConnectVM?\n\n**Eyebrow:** BUILT FOR MISSION-CRITICAL ERP\n**H2:** Eliminate Hardware Refresh Cycles and Hyperscaler Complexity\n\nRunning SAP on-premises locks capital into aging hardware, while running SAP on legacy hyperscalers often results in runaway egress fees, complex licensing tiers, and unpredictable support bills. ConnectVM delivers a clean, high-performance infrastructure layer tailored for SAP partners and enterprise IT teams:\n\n1. **High-Memory, High-Frequency Compute:** SAP HANA and in-memory ERP databases demand massive memory bandwidth and high single-thread CPU clock speeds. Our Memory-Optimized instances deliver dedicated ECC RAM and enterprise processors without noisy-neighbor degradation.\n2. **Ultra-Low-Latency NVMe Storage:** Database commits and log writes happen on triple-replicated NVMe block storage, ensuring rapid transaction processing and zero data loss if a physical drive fails.\n3. **Complete Network Isolation (VPC):** Keep your SAP database and application servers completely hidden from the public internet inside a private Layer-2/Layer-3 network, accessible only via encrypted Site-to-Site IPsec VPN, WireGuard, or hardened RDP/Citrix/Web Dispatcher gateways.\n\n---\n\n## 3. Supported SAP Landscapes & Solutions\n\n### 1. SAP Business One (SQL Server & SAP HANA Editions)\nTurnkey cloud infrastructure for small-to-midsize enterprises and SAP B1 partners.\n- Run SAP B1 Server, License Manager, Service Layer, and Windows Terminal Server / RDS instances inside a unified private subnet.\n- Scale user capacity seamlessly as your organization adds branches or remote workers.\n\n### 2. SAP HANA & S/4HANA Landscapes (Dev, QA, & Production)\nHigh-memory Linux instances (SUSE Linux Enterprise Server / Red Hat Enterprise Linux compatible) with separated `/hana/data`, `/hana/log`, and `/hana/shared` high-IOPS NVMe volumes.\n- Clone multi-terabyte Production SAP landscapes into isolated QA/Sandbox environments in minutes using **Instant Volume Snapshots**.\n\n### 3. High-Availability (HA) & Disaster Recovery (DR) for SAP\nProtect your business against downtime:\n- **Anti-Affinity Host Placement:** Guarantee primary and standby SAP HANA / SQL nodes run on physically separate hypervisors.\n- **Virtual IP (VIP) Failover:** Native support for Pacemaker/Corosync and VRRP floating Virtual IPs for automated sub-second cluster failover.\n- **Automated Snapshot & Off-Instance Backups:** Point-in-time recovery for both OS root volumes and database volumes.\n\n---\n\n## 4. Reference Architecture: SAP on ConnectVM\n\n```mermaid\ngraph TD\n    Users[Corporate Office / Remote ERP Users] --> VPN[Encrypted IPsec VPN / Bastion / Web Dispatcher]\n    VPN --> PubIP[ConnectVM Reserved Public IP]\n    PubIP --> VRouter[Virtual Router & Stateful Security Group]\n    VRouter --> AppTier[Private App Tier: SAP App Server / RDS Gateway]\n    AppTier --> DBTier[Private DB Tier: High-Memory SAP HANA / SQL VM]\n    DBTier --> NVMeData[NVMe Volume: /hana/data - 3x Replicated]\n    DBTier --> NVMeLog[NVMe Volume: /hana/log - Ultra-Low Latency]\n    DBTier --> Snapshots[Automated Daily Volume Snapshots & DR Backup]\n```\n\n---\n\n## 5. Top SAP Cloud Use Cases\n\n- **On-Premises SAP Migration (Lift & Shift):** Retire aging local servers and move existing SAP VMs or custom images directly to ConnectVM with identical private IP addressing.\n- **Rapid SAP Sandbox & Upgrade Testing:** Spin up temporary clones of your production ERP before applying support packages or version upgrades, and destroy the clone when testing concludes.\n- **Managed Service Provider (MSP) & SAP Partner Hosting:** Host multi-tenant or dedicated customer SAP Business One environments in isolated project spaces with predictable monthly margins.\n\n---\n\n## 6. Call-to-Action\n\n**H2:** Plan Your SAP Cloud Deployment with Our Engineering Team\n**Subheadline:** Get a customized sizing assessment, network topology design, and transparent TCO comparison for your SAP landscape.\n**Primary CTA:** Request an SAP Architecture Consultation \u2192\n"}, {"id": "04-storage", "filename": "04-storage.md", "category": "Storage", "icon": "\ud83d\udcbe", "label": "Storage", "content": "# Cloud Storage \u2014 NVMe Block, Object & Shared File Storage \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Storage | 3x Replicated NVMe Block, Object & File Storage | ConnectVM\n- **Meta Description:** Scale your cloud storage with ConnectVM. High-IOPS triple-replicated NVMe Block Volumes, S3-compatible Object Storage, Shared NFS File Storage, and Instant Snapshots.\n- **Primary Keywords:** NVMe block storage, persistent cloud storage, S3 object storage cloud, cloud volume snapshots, triple replicated storage, high IOPS cloud disk\n- **URL Slug:** `/products/storage`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM STORAGE\n**H1:** High-IOPS, Self-Healing Cloud Storage Built for Zero Data Loss.\n**Subheadline:** Decouple your data from your compute. From sub-millisecond NVMe block volumes for transactional databases to infinitely scalable object storage and instant point-in-time snapshots\u2014ConnectVM keeps your data fast, durable, and always available.\n\n**Primary CTA:** Provision Cloud Storage \u2192\n**Secondary CTA:** Explore Storage Pricing\n\n---\n\n## 2. Complete Storage Portfolio\n\n**Eyebrow:** THREE STORAGE TIERS, ONE UNIFIED PLATFORM\n**H2:** The Right Storage Engine for Every Data Type\n\n### 1. Persistent NVMe Block Storage\nRaw, low-latency block volumes that attach directly to your Virtual Machines like local NVMe drives\u2014backed by a distributed, self-healing storage cluster.\n- **3x Synchronous Replication:** Every write is committed across three separate physical storage nodes before acknowledging completion.\n- **Hot-Attach & Detach:** Attach multiple volumes to a running VM or move a data volume from one VM to another in seconds.\n- **Online Volume Expansion:** Grow your storage capacity on the fly without powering down your server or interrupting applications.\n\n### 2. S3-Compatible Object Storage\nMassively scalable, highly durable storage accessible from anywhere via standard S3 REST APIs.\n- **Built for Unstructured Data:** Store application backups, user uploads, media files, container images, and analytics data lakes.\n- **Seamless Ecosystem Integration:** Works out of the box with AWS CLI, `rclone`, `restic`, Velero, pgBackRest, and modern web SDKs.\n\n### 3. Shared File Storage (Network File Shares)\nMountable, POSIX-compliant shared file systems that can be accessed concurrently by multiple Virtual Machines inside your private VPC.\n- **Ideal for Clustered Apps:** Share media folders, configuration files, CMS uploads, or AI training datasets across a fleet of web or worker nodes.\n\n### 4. Instant Volume Snapshots & Automated Backups\nProtect your workloads against human error, bad deployments, and ransomware:\n- **Point-in-Time Snapshots:** Capture the exact state of any block volume in seconds.\n- **Volume Cloning:** Create instant writable clones of production volumes for testing or staging without network copy overhead.\n- **Bootable Templates:** Convert any volume snapshot into a reusable golden image to launch pre-configured VMs.\n\n---\n\n## 3. Why ConnectVM Storage Outperforms Local RAID VPS\n\n| Feature | Traditional Local-Disk VPS | ConnectVM Distributed NVMe Storage |\n| :--- | :--- | :--- |\n| **Hardware Node Failure** | \u274c VM & data offline until node is repaired | \u2705 **Data remains intact across 3 storage nodes; VM restarts immediately** |\n| **Expanding Disk Size** | \u274c Requires full plan upgrade or migration | \u2705 **Expand volume GBs independently in clicks** |\n| **Moving Disks Between VMs** | \u274c Requires slow `rsync` / `scp` over network | \u2705 **Detach from VM A and attach to VM B in seconds** |\n| **Snapshot Speed** | \u26a0\ufe0f Slow, blocks disk I/O during copy | \u2705 **Instant copy-on-write (CoW) snapshots** |\n\n---\n\n## 4. Storage Use Cases\n\n1. **High-Transaction Relational Databases:** Separate your database data directory (`/var/lib/postgresql`) and WAL/transaction logs onto dedicated high-IOPS NVMe block volumes.\n2. **Immutable Backup Repositories:** Stream encrypted daily database dumps and server backups to S3-Compatible Object Storage.\n3. **High-Availability Web Farms:** Use Shared File Storage so multiple load-balanced web VMs read and write to a single shared asset directory.\n4. **Zero-Penalty Staging Refreshes:** Snapshot a 1 TB production volume and mount an instant clone on a staging VM in under a minute.\n\n---\n\n## 5. Call-to-Action\n\n**H2:** Scale Your Storage Without Limits or Downtime\n**Subheadline:** Experience triple-replicated NVMe speed and effortless backup management on ConnectVM.\n**Primary CTA:** Create Your Storage Volume \u2192\n"}, {"id": "05-networking-and-public-ip", "filename": "05-networking-and-public-ip.md", "category": "Networking", "icon": "\ud83c\udf10", "label": "Networking & Public IP", "content": "# Networking & Public IP \u2014 VPC, Floating IPs & Load Balancers \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Networking | Portable Public IPs, Isolated VPC & Load Balancers | ConnectVM\n- **Meta Description:** Architect resilient cloud networks on ConnectVM. Reserve portable Public IPs with instant failover, build isolated Virtual Private Clouds (VPC), and deploy Cloud Load Balancers.\n- **Primary Keywords:** cloud public IP, portable public IP, floating IP cloud, virtual private cloud VPC, cloud load balancer, virtual router SNAT\n- **URL Slug:** `/products/networking`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM NETWORKING\n**H1:** Software-Defined Cloud Networking & Portable Public IPs.\n**Subheadline:** Take full control of your network topology. Reserve static Public IPs that move across your VMs in seconds, isolate backend workloads in custom Virtual Private Clouds (VPC), and scale traffic effortlessly with managed Load Balancers and Virtual Routers.\n\n**Primary CTA:** Configure Your Cloud Network \u2192\n**Secondary CTA:** Explore Public IP Features\n\n---\n\n## 2. Spotlight Feature: ConnectVM Portable Public IPs\n\n**Eyebrow:** ZERO-DOWNTIME IP MOBILITY\n**H2:** Static Public IPv4 Addresses Decoupled From Your Servers\n\nIn legacy hosting, an IP address is hardwired to a single virtual machine\u2014if that server fails or needs to be replaced, your IP changes and your users face DNS propagation outages.\n\nOn **ConnectVM**, **Public IPs** (Elastic / Floating IPs) are independent network resources reserved directly to your account pool. Our edge virtual routers map your Public IP to your instance's Private IP via high-speed 1:1 Stateless NAT.\n\n### What You Can Do With ConnectVM Public IPs:\n- **Keep Your IP Forever:** Stop, rebuild, resize, or even delete a VM\u2014your reserved Public IP stays safely in your account pool until you release it.\n- **Instant Failover & Reassignment:** Remap a live Public IP from a primary VM to a standby VM in under 2 seconds via the web console or REST API\u2014zero DNS changes required.\n- **Blue-Green Production Cutovers:** Test a new release on a staging VM, then swap the production Public IP over to the new VM for an instant, reversible deployment.\n- **Partner Firewall Whitelisting:** Maintain permanent, unchanging IPv4 addresses for enterprise client connections, banking APIs, and third-party whitelists.\n\n---\n\n## 3. Complete Cloud Networking Suite\n\n### 1. Isolated Virtual Private Cloud (VPC) & Custom Subnets\nEvery ConnectVM project gets its own completely isolated Layer-2/Layer-3 network fabric.\n- Define custom RFC1918 private CIDR ranges (e.g., `10.10.0.0/24`, `192.168.1.0/24`).\n- Create separate subnets for Web, Application, and Database tiers.\n- Configure custom DHCP pools, static internal routes, and DNS resolvers.\n- **Free East-West Traffic:** High-speed internal traffic between VMs inside your private network is completely isolated and free of bandwidth charges.\n\n### 2. Managed Virtual Routers & Outbound SNAT\nConnect private subnets cleanly and securely:\n- **Multi-Subnet Routing:** Route traffic between multiple internal private networks.\n- **Outbound Source NAT (SNAT):** Allow private-only VMs (such as database servers or worker nodes with no Public IP) to securely reach the internet to download OS security updates while remaining 100% unreachable from outside.\n\n### 3. Cloud Load Balancers\nDistribute incoming traffic across multiple Virtual Machines for horizontal scale and high availability:\n- **Layer-4 & Layer-7 Load Balancing:** Support for TCP, UDP, HTTP, and HTTPS traffic distribution.\n- **Automated Health Checks:** Continuously monitor backend VMs and automatically remove unhealthy nodes from rotation.\n- **Flexible Algorithms:** Round-robin, least-connections, and source-IP session persistence.\n\n### 4. Virtual IP (VIP) & Allowed Address Pairs\nRunning your own HAProxy, NGINX, or Keepalived/VRRP high-availability cluster? Configure **Allowed Address Pairs** on your virtual network interfaces so multiple VMs can share floating internal or external Virtual IPs for sub-second heartbeat failover.\n\n### 5. Multi-NIC Virtual Machines\nAttach multiple virtual network interfaces (vNICs) to any VM to physically and logically segregate public ingress traffic, private database cluster replication, and storage/backup traffic.\n\n### 6. Hybrid Cloud & Site-to-Site VPN Ready\nExtend your on-premises data center or corporate office into ConnectVM using IPsec Site-to-Site VPNs, OpenVPN, or WireGuard gateways.\n\n---\n\n## 4. Networking Reference Architecture\n\n```mermaid\ngraph TD\n    Client[Internet Traffic] --> PubIP1[Portable Public IP #1]\n    Admin[DevOps / Admin] --> PubIP2[Portable Public IP #2]\n    \n    PubIP1 --> LB[Cloud Load Balancer / Web Tier]\n    PubIP2 --> Bastion[SSH Bastion / VPN Gateway]\n    \n    LB --> Web1[Web VM 1 - 10.0.1.11]\n    LB --> Web2[Web VM 2 - 10.0.1.12]\n    \n    Bastion --> PrivNet[Isolated Private VPC Subnet: 10.0.2.0/24]\n    Web1 --> PrivNet\n    Web2 --> PrivNet\n    \n    PrivNet --> DBPrimary[Primary DB VM - 10.0.2.50 - Private Only]\n    PrivNet --> DBReplica[Replica DB VM - 10.0.2.51 - Private Only]\n```\n\n---\n\n## 5. Networking Use Cases\n\n| Scenario | ConnectVM Networking Solution |\n| :--- | :--- |\n| **Zero-Downtime Maintenance** | Detach the **Public IP** from `Web-Server-01` and attach it to `Web-Server-02` while patching OS kernels. |\n| **Zero-Exposure Databases** | Place PostgreSQL/MongoDB on a **Private VPC Subnet** with no Public IP; use the **Virtual Router SNAT** for outbound package updates. |\n| **High-Traffic Flash Sales** | Attach a **Public IP** to a **Cloud Load Balancer** and scale backend Web VMs horizontally across anti-affinity hosts. |\n| **Hybrid Cloud Extension** | Connect your office firewall to a ConnectVM VPN Gateway to access internal ERP and database VMs over private IPs. |\n\n---\n\n## 6. Frequently Asked Questions\n\n**Q: Do I have to pay for a Public IP on every VM?**\nA: No. Only internet-facing VMs or Load Balancers need a Public IP. You can run dozens of internal application, cache, and database VMs using only free Private VPC IPs.\n\n**Q: Does reassigning a Public IP require rebooting my VM?**\nA: Never. Public IP reassignment happens instantaneously at the ConnectVM Virtual Router layer using 1:1 NAT. Your VM's internal operating system doesn't even need to restart its network service.\n\n---\n\n## 7. Call-to-Action\n\n**H2:** Design Your Isolated Cloud Network in Minutes\n**Subheadline:** Combine portable Public IPs, private VPC subnets, and stateful security groups on ConnectVM.\n**Primary CTA:** Launch Your VPC Network \u2192\n"}, {"id": "06-database", "filename": "06-database.md", "category": "Database", "icon": "\ud83d\uddc4\ufe0f", "label": "Database", "content": "# Cloud Databases \u2014 High-IOPS SQL, NoSQL & In-Memory Hosting \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Database Hosting | High-IOPS PostgreSQL, MySQL, MongoDB & Redis | ConnectVM\n- **Meta Description:** Run ultra-fast, highly available databases on ConnectVM. Combine Memory-Optimized VMs, 3x-replicated NVMe block storage, isolated VPC security, and instant snapshots.\n- **Primary Keywords:** cloud database hosting, PostgreSQL cloud server, MySQL high availability cloud, MongoDB cloud hosting, Redis in-memory cloud, high IOPS database storage\n- **URL Slug:** `/products/database`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM FOR DATABASES\n**H1:** High-IOPS, Low-Latency Cloud Infrastructure for Mission-Critical Databases.\n**Subheadline:** Databases live and die by disk I/O, memory bandwidth, and network stability. Run PostgreSQL, MySQL, MariaDB, MongoDB, MS SQL Server, and Redis on dedicated-grade ConnectVM infrastructure with triple-replicated NVMe storage and total VPC isolation.\n\n**Primary CTA:** Deploy a Database Instance \u2192\n**Secondary CTA:** Explore High-Availability Architectures\n\n---\n\n## 2. Supported Database Engines & Workloads\n\n**Eyebrow:** BUILT FOR EVERY DATA MODEL\n**H2:** Optimized Infrastructure for SQL, NoSQL, and In-Memory Stores\n\n### 1. Relational Databases (PostgreSQL, MySQL, MariaDB, MS SQL)\nEngineered for strict ACID compliance and heavy transactional (OLTP) throughput.\n- Low-latency NVMe block storage ensures rapid `fsync` and Write-Ahead Log (WAL) commits.\n- Memory-Optimized VM flavors keep working indexes and buffer pools entirely in RAM.\n\n### 2. Document & NoSQL Databases (MongoDB, Cassandra, Couchbase)\nScale horizontally across multi-node replica sets and sharded clusters.\n- Use **Anti-Affinity Placement** to ensure every replica set member runs on a physically separate hypervisor host.\n- Expand attached NVMe block volumes online as document collections grow into the terabytes.\n\n### 3. In-Memory Caching & Message Stores (Redis, Valkey, Memcached, RabbitMQ)\nDeliver sub-millisecond response times for session stores, leaderboards, pub/sub queues, and real-time API caching.\n- High-clock-speed vCPUs maximize single-threaded Redis operations per second.\n- High-speed private VPC networking ensures near-zero serialization latency between app servers and cache nodes.\n\n---\n\n## 3. Why Database Engineers Choose ConnectVM\n\n### 1. 3x Replicated NVMe Storage (Zero RAID Rebuild Anxiety)\nEvery database block written to a ConnectVM volume is synchronously replicated across three separate storage nodes. Even if an underlying SSD or storage node fails, your database remains online with zero data corruption.\n\n### 2. Dedicated Data & Log Volumes\nFollow database best practices effortlessly: attach one NVMe volume for your OS, a second high-IOPS volume for your database tablespaces (`/var/lib/postgresql/data`), and a third dedicated volume for transaction logs (`pg_wal` / `binlog`)\u2014preventing I/O contention.\n\n### 3. Instant Pre-Migration Snapshots & Fast Cloning\n- **Zero-Fear Schema Migrations:** Take a point-in-time volume snapshot in 2 seconds before running complex `ALTER TABLE` migrations.\n- **Instant Production Clones for Analytics/QA:** Clone a 1 TB database volume in seconds and attach it to a reporting or staging VM without impacting production database IOPS.\n\n### 4. Air-Gapped Private Network Security\nDeploy your database instances on an isolated private subnet with **no Public IP**. Combine **Stateful Security Groups** so port `5432`, `3306`, or `27017` only accepts connections from your verified application Security Group.\n\n---\n\n## 4. High-Availability Database Reference Architecture\n\n1. **Primary + Standby Replica Across Physical Hosts:** Launch Primary and Standby database VMs inside an **Anti-Affinity Group**.\n2. **Floating Virtual IP (VIP) Failover:** Use Patroni, Keepalived, or ProxySQL with ConnectVM **Allowed Address Pairs** so application servers automatically route to the promoted standby within seconds of a failure.\n3. **Automated Off-Instance Backups:** Combine instant volume snapshots with continuous WAL/binlog streaming to ConnectVM **S3-Compatible Object Storage** for point-in-time recovery (PITR).\n\n---\n\n## 5. Call-to-Action\n\n**H2:** Stop Starving Your Databases of IOPS\n**Subheadline:** Deploy your next PostgreSQL, MySQL, MongoDB, or Redis cluster on ConnectVM's triple-replicated NVMe cloud.\n**Primary CTA:** Launch Database Infrastructure \u2192\n"}, {"id": "07-security", "filename": "07-security.md", "category": "Security", "icon": "\ud83d\udee1\ufe0f", "label": "Security", "content": "# Cloud Security \u2014 Firewalls, VPC Isolation & IAM \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Security | Stateful Firewalls, VPC Isolation & DDoS Protection | ConnectVM\n- **Meta Description:** Protect your cloud workloads from the hypervisor to the network edge. ConnectVM provides Stateful Security Groups, isolated VPCs, DDoS mitigation, and RBAC access control.\n- **Primary Keywords:** cloud security platform, stateful cloud firewall, security groups cloud, isolated VPC security, DDoS protected cloud, role based access control cloud\n- **URL Slug:** `/products/security`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM SECURITY\n**H1:** Defense-in-Depth Security Built Into Every Layer of Your Cloud.\n**Subheadline:** Secure your applications from the physical hypervisor to the network edge. ConnectVM gives you hardware-enforced tenant isolation, stateful virtual firewalls, micro-segmented private networks, and granular identity governance out of the box.\n\n**Primary CTA:** Explore Security Controls \u2192\n**Secondary CTA:** Talk to a Security Architect\n\n---\n\n## 2. Core Cloud Security Capabilities\n\n**Eyebrow:** ZERO-TRUST CLOUD ARCHITECTURE\n**H2:** Multi-Layered Protection for Regulated & Mission-Critical Workloads\n\n### 1. Stateful Security Groups (Virtual NIC Firewalls)\nEnforce firewall policy directly at the virtual network interface\u2014before traffic ever reaches your VM's operating system:\n- **Default-Deny Ingress:** Block all unsolicited inbound traffic by default; explicitly open only the ports and CIDRs you need.\n- **Security Group Referencing (Micro-Segmentation):** Instead of hardcoding fragile IP addresses, write dynamic rules like *\"Allow TCP Port 5432 inbound only from instances belonging to `sg-prod-web-servers`\"*.\n- **Instant Propagation:** Changes to Security Group rules take effect across all associated VMs immediately with zero reboots.\n\n### 2. True Tenant Isolation (Network & Compute)\n- **KVM Hardware Virtualization:** Strict CPU and memory address-space isolation aided by hardware virtualization extensions (`VT-x` / `AMD-V`) and mandatory access controls.\n- **Isolated Layer-2/Layer-3 VPCs:** Your private subnets are cryptographically and logically isolated from every other customer on the platform.\n\n### 3. Always-On Edge DDoS Mitigation\nProtect your Public IPs and Cloud Load Balancers against volumetric floods, SYN floods, and amplification attacks at our network perimeter\u2014keeping your legitimate user traffic flowing smoothly.\n\n### 4. Identity, Projects & Role-Based Access Control (RBAC)\nOrganize your teams and environments securely:\n- **Multi-Project Isolation:** Separate Production, Staging, and Development resources into distinct project boundaries with independent quotas and networks.\n- **Granular RBAC Permissions:** Assign least-privilege roles (Administrator, Network Operator, Member, Read-Only Auditor) to team members and API service accounts.\n\n### 5. Automated SSH Key Injection & Bastion Workflows\nEliminate password-based brute-force risks. Upload your team's SSH public keys to ConnectVM and automatically inject them into new Linux instances at boot time via Cloud-Init, while disabling password authentication.\n\n### 6. Anti-Spoofing & Port Security\nEvery ConnectVM virtual switch port enforces strict MAC and IP anti-spoofing filters automatically\u2014preventing ARP poisoning, rogue DHCP servers, or unauthorized IP hijacking inside your network.\n\n---\n\n## 3. Security Use Cases & Compliance Patterns\n\n| Security Requirement | How ConnectVM Solves It |\n| :--- | :--- |\n| **PCI-DSS / FinTech Tier Isolation** | Isolate cardholder/financial database VMs in a dedicated private subnet with zero Public IPs and strict Security Group ingress rules. |\n| **Secure Remote DevOps Access** | Expose only a hardened SSH Bastion Host or WireGuard VPN on a single **Public IP**; keep all internal servers on private IPs. |\n| **Ransomware & Disaster Recovery** | Take immutable point-in-time **Volume Snapshots** and replicate encrypted backups to off-instance Object Storage. |\n| **Custom Security Appliances** | Upload custom firewall/UTM images (pfSense, OPNsense, Fortinet, Sophos) and attach multiple vNICs to inspect all VPC traffic. |\n\n---\n\n## 4. Call-to-Action\n\n**H2:** Build on a Cloud Designed for Zero-Trust Security\n**Subheadline:** Deploy isolated VPCs, stateful security groups, and hardened virtual machines in minutes.\n**Primary CTA:** Secure Your Cloud Infrastructure \u2192\n"}, {"id": "08-ai-and-ml", "filename": "08-ai-and-ml.md", "category": "AI & ML", "icon": "\ud83e\udd16", "label": "AI & ML", "content": "# AI & Machine Learning \u2014 Cloud GPUs & Private LLM Hosting \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** AI & ML Cloud | Cloud GPU Instances & Private LLM Hosting | ConnectVM\n- **Meta Description:** Train, fine-tune, and deploy AI models on ConnectVM. Dedicated GPU cloud instances, private LLM inference inside isolated VPCs, and high-memory Vector Database hosting.\n- **Primary Keywords:** AI cloud infrastructure, cloud GPU instances, private LLM hosting, machine learning cloud servers, vector database hosting, RAG cloud architecture\n- **URL Slug:** `/products/ai-ml`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM AI & MACHINE LEARNING\n**H1:** Dedicated Cloud GPUs & Private AI Infrastructure\u2014Inside Your Own VPC.\n**Subheadline:** Build, fine-tune, and serve AI models without sending proprietary enterprise data to third-party public APIs. ConnectVM pairs GPU-accelerated instances with high-throughput NVMe storage and isolated private networking for complete AI sovereignty.\n\n**Primary CTA:** Launch AI & GPU Compute \u2192\n**Secondary CTA:** Request GPU Cluster Quota\n\n---\n\n## 2. Core AI & ML Infrastructure Capabilities\n\n**Eyebrow:** PRIVATE AI AT SCALE\n**H2:** Purpose-Built Infrastructure for the Modern AI Stack\n\n### 1. Dedicated GPU Cloud Instances (PCIe Passthrough)\nAccess raw, unshared GPU acceleration directly inside your Virtual Machine via hardware PCIe passthrough\u2014delivering near-bare-metal CUDA and tensor performance for training, fine-tuning, and low-latency inference.\n\n### 2. 100% Private LLM Hosting & Inference\nConcerned about data privacy, compliance, or unpredictable per-token API bills?\n- Host open-weights models (**Llama 3, Mistral, DeepSeek, Qwen, Whisper, Stable Diffusion**) on your own ConnectVM instances using vLLM, Ollama, TGI, or NVIDIA Triton.\n- Keep all prompts, embeddings, and customer data strictly inside your isolated **ConnectVM Private VPC**.\n\n### 3. High-Memory Vector Database Infrastructure (RAG)\nRetrieval-Augmented Generation (RAG) requires fast memory access and ultra-low disk latency:\n- Run **Qdrant, Milvus, Weaviate, Chroma, or PostgreSQL (`pgvector`)** on ConnectVM **Memory-Optimized VMs** backed by triple-replicated NVMe block storage for millisecond similarity search over tens of millions of embeddings.\n\n### 4. High-Throughput Storage for Training Datasets\n- Store multi-terabyte raw training datasets, model checkpoints, and LoRA adapters on **S3-Compatible Object Storage** or **Shared File Storage**.\n- Stream training batches into GPU instances over high-speed internal networks without egress fees.\n\n### 5. Pre-Configured AI/ML Images & Cloud-Init Automation\nSkip hours of driver headaches. Boot instances with pre-validated Ubuntu AI templates featuring CUDA, cuDNN, Docker, NVIDIA Container Toolkit, PyTorch, and JupyterLab ready out of the box.\n\n---\n\n## 3. AI & ML Use Cases on ConnectVM\n\n| AI Workload | ConnectVM Architecture | Business Advantage |\n| :--- | :--- | :--- |\n| **Private Enterprise Chatbots & Copilots** | GPU Inference VM + Vector DB VM inside an isolated Private VPC | Zero data leakage to external AI vendors; flat, predictable monthly cost |\n| **Model Fine-Tuning (LoRA / QLoRA)** | On-demand GPU VMs + High-IOPS NVMe Volume + Object Storage checkpoints | Spin up GPU compute only during training runs; keep checkpoints on persistent storage |\n| **Computer Vision & Video Analytics** | GPU Instances + High-bandwidth ingress via Portable Public IP | Real-time object detection, OCR, and media transcoding |\n| **Automated MLOps Pipelines** | API-driven ephemeral VMs for data preprocessing + model evaluation | Automate end-to-end training workflows via ConnectVM REST API |\n\n---\n\n## 4. Reference Architecture: Private Enterprise RAG & LLM Pipeline\n\n```mermaid\ngraph TD\n    App[Internal Enterprise App / API Gateway] --> SG[Stateful Security Group]\n    SG --> LLMNode[GPU Inference VM: vLLM / Llama-3]\n    SG --> EmbedNode[Embedding Service VM]\n    EmbedNode --> VecDB[Memory-Optimized VM: Qdrant / pgvector]\n    VecDB --> NVMe[3x Replicated NVMe Block Volume]\n    LLMNode --> ObjStore[S3-Compatible Object Storage: Model Weights & Checkpoints]\n```\n\n---\n\n## 5. Call-to-Action\n\n**H2:** Take Full Ownership of Your AI Models and Data\n**Subheadline:** Deploy private LLMs, vector databases, and GPU workloads on ConnectVM today.\n**Primary CTA:** Deploy AI Infrastructure \u2192\n**Secondary CTA:** Speak With an AI Infrastructure Specialist\n"}, {"id": "09-analytics", "filename": "09-analytics.md", "category": "Analytics", "icon": "\ud83d\udcca", "label": "Analytics", "content": "# Cloud Analytics & Big Data \u2014 Real-Time OLAP, Logs & Streaming \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Analytics & Big Data Infrastructure | ClickHouse, OpenSearch & Kafka | ConnectVM\n- **Meta Description:** Power real-time analytics, log search, and event streaming on ConnectVM. High-IOPS NVMe storage, high-memory compute, and zero internal bandwidth fees for big data clusters.\n- **Primary Keywords:** cloud analytics infrastructure, big data cloud hosting, ClickHouse cloud hosting, OpenSearch ELK cloud, Apache Kafka cloud, data warehouse infrastructure\n- **URL Slug:** `/products/analytics`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM ANALYTICS\n**H1:** Blazing-Fast Infrastructure for Real-Time Analytics, Log Search & Event Streaming.\n**Subheadline:** Ingest millions of events per second and query billions of rows in milliseconds. ConnectVM combines high-frequency compute, high-IOPS NVMe block volumes, and free internal VPC traffic\u2014giving you big-data scale without hyperscaler data-transfer penalties.\n\n**Primary CTA:** Launch Analytics Cluster \u2192\n**Secondary CTA:** Calculate Your TCO Savings\n\n---\n\n## 2. Why Run Analytics Workloads on ConnectVM?\n\n**Eyebrow:** BUILT FOR DATA-INTENSIVE SCALE\n**H2:** Eliminate the Two Biggest Bottlenecks in Cloud Analytics: Disk I/O and Network Fees\n\n1. **Zero Internal VPC Data Transfer Fees:** Distributed analytics engines (like ClickHouse, Elasticsearch/OpenSearch, Apache Kafka, and Spark) constantly replicate and shuffle terabytes of data between nodes. While hyperscalers charge punishing cross-AZ data transfer fees for internal replication, **east-west traffic inside your ConnectVM Private VPC is 100% free**.\n2. **Hot + Warm + Cold Storage Tiering:** Combine ultra-fast **NVMe Block Storage** for hot indexing with scalable **S3-Compatible Object Storage** for warm/cold historical data retention\u2014dramatically lowering your cost per terabyte.\n3. **Anti-Affinity Cluster Resiliency:** Guarantee that your Kafka brokers, OpenSearch data nodes, or ClickHouse shards run on separate physical hypervisors for true hardware fault tolerance.\n\n---\n\n## 3. Core Analytics Workloads We Power\n\n### 1. Real-Time Columnar OLAP (ClickHouse, Apache Druid, StarRocks)\nRun sub-second analytical aggregations over billions of events for customer-facing dashboards, product analytics, and financial reporting.\n- High-clock-speed Compute-Optimized and Memory-Optimized VMs accelerate vectorized query execution.\n\n### 2. Log Management, Observability & Full-Text Search (OpenSearch, Elasticsearch / ELK, Loki)\nCentralize application logs, infrastructure metrics, SIEM security events, and e-commerce product search.\n- Scale ingest, master, and data nodes independently across dedicated NVMe block volumes.\n- Expand storage volumes online as log retention grows.\n\n### 3. Event Streaming & Message Brokers (Apache Kafka, Redpanda, Pulsar)\nBuild high-throughput, low-latency event-driven architectures.\n- Dedicated NVMe volumes provide deterministic sequential read/write throughput for log segments.\n- Isolated VPC subnets ensure secure producer-to-consumer streaming.\n\n### 4. Modern Data Stack & ELT Engines (Airbyte, dbt, Dagster, Apache Spark, Trino)\nOrchestrate automated data ingestion from operational databases into your analytical data warehouse or S3-compatible data lakehouse.\n\n---\n\n## 4. Analytics Use Cases\n\n| Use Case | Recommended Stack on ConnectVM | Key Benefit |\n| :--- | :--- | :--- |\n| **SaaS Product & User Analytics** | ClickHouse Cluster + NVMe Block + Object Storage Tiering | Sub-100ms dashboard queries at 50\u201370% lower cost than managed SaaS analytics |\n| **Centralized Observability & SIEM** | OpenSearch / ELK + Prometheus + Grafana | Full data retention control without per-GB ingestion pricing spikes |\n| **Real-Time IoT & Telemetry Ingestion** | Redpanda / Kafka + TimescaleDB | Handle massive concurrent device streams over dedicated Public IPs & Load Balancers |\n\n---\n\n## 5. Call-to-Action\n\n**H2:** Scale Your Data Pipelines Without Scaling Your Cloud Bill\n**Subheadline:** Deploy high-throughput analytics clusters with NVMe storage and free internal VPC networking.\n**Primary CTA:** Deploy Your Analytics Stack \u2192\n"}, {"id": "10-management", "filename": "10-management.md", "category": "Management", "icon": "\u2699\ufe0f", "label": "Management", "content": "# Cloud Management, Automation & API \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Management Console, REST API & IaC Automation | ConnectVM\n- **Meta Description:** Manage your entire cloud lifecycle from a single pane of glass or automate via REST API, CLI, Cloud-Init, and Terraform. Full governance and telemetry included.\n- **Primary Keywords:** cloud management console, cloud REST API, infrastructure as code cloud, cloud-init automation, cloud governance RBAC, HTML5 VNC console\n- **URL Slug:** `/products/management`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** CONNECTVM MANAGEMENT & GOVERNANCE\n**H1:** Effortless Cloud Control\u2014From Intuitive Web UI to Full API Automation.\n**Subheadline:** Whether you prefer point-and-click simplicity or 100% Infrastructure-as-Code (IaC) automation, ConnectVM gives your engineering and operations teams complete visibility, governance, and lifecycle control over every cloud resource.\n\n**Primary CTA:** Explore the Cloud Console \u2192\n**Secondary CTA:** View API Capabilities\n\n---\n\n## 2. Four Ways to Manage Your Infrastructure\n\n**Eyebrow:** BUILT FOR ADMINS & DEVOPS ALIKE\n**H2:** Manage Your Cloud Your Way\n\n### 1. ConnectVM Single-Pane-of-Glass Web Console\nA fast, modern web dashboard designed for clarity\u2014not clutter:\n- Provision VMs, attach NVMe volumes, manage VPC subnets, and remap **Public IPs** in seconds.\n- **Visual Network Topology:** View your virtual routers, private subnets, and connected instances clearly.\n- **Out-of-Band HTML5 VNC Console:** Access any VM directly in your browser with full keyboard and screen control\u2014even if the OS network stack is offline.\n\n### 2. Comprehensive RESTful API & CLI\nEvery action available in the ConnectVM Web Console is backed by a documented, standards-compliant REST API and Command-Line Interface (CLI):\n- Script automated instance scaling, snapshot schedules, and **Public IP** failover cutovers.\n- Integrate directly into internal developer portals and custom billing/provisioning workflows.\n\n### 3. Infrastructure as Code (Terraform, OpenTofu, Ansible, Cloud-Init)\nTreat your infrastructure like application code:\n- **Declarative Provisioning:** Define your VPC networks, Security Groups, Block Volumes, and Compute Instances in version-controlled templates.\n- **Zero-Touch Bootstrapping (Cloud-Init):** Pass YAML user-data or startup scripts to configure packages, users, certificates, and Docker containers automatically on first boot.\n\n### 4. Multi-Project Governance, Quotas & RBAC\nBuilt for agencies, MSPs, and multi-team enterprises:\n- **Project Isolation:** Segment departments, clients, or environments (`Prod`, `Staging`, `Dev`) into isolated projects with dedicated resource quotas (vCPUs, RAM, Storage GBs, Public IPs).\n- **Role-Based Access Control (RBAC):** Grant fine-grained permissions to developers, network admins, and billing managers.\n\n---\n\n## 3. Built-In Observability & Lifecycle Tools\n\n| Feature | How It Helps Operations Teams |\n| :--- | :--- |\n| **Real-Time Resource Telemetry** | Monitor vCPU utilization, memory pressure, disk IOPS/throughput, and network packet rates directly from the dashboard. |\n| **Audit Trails & Action Logs** | Track every lifecycle event (who created, resized, rebooted, or deleted an instance or firewall rule, and when). |\n| **Automated Snapshot Policies** | Configure recurring volume snapshots and retention rules to ensure continuous compliance. |\n| **Rescue & Rebuild Workflows** | Recover broken bootloaders via Rescue ISO mode or re-image a server cleanly without changing its IP addresses. |\n\n---\n\n## 4. Call-to-Action\n\n**H2:** Experience Cloud Management Without the Complexity\n**Subheadline:** Take ConnectVM for a spin\u2014deploy via our intuitive web console or automate your entire stack via API in minutes.\n**Primary CTA:** Create Your Free Account \u2192\n"}, {"id": "11-use-cases-and-solutions", "filename": "11-use-cases-and-solutions.md", "category": "Solutions", "icon": "\ud83d\ude80", "label": "Use Cases & Solutions", "content": "# Cloud Use Cases & Industry Solutions \u2014 ConnectVM.com\n\n## SEO Metadata\n- **Meta Title:** Cloud Infrastructure Use Cases & Solutions | ConnectVM\n- **Meta Description:** Discover how SaaS companies, DevOps teams, e-commerce brands, and enterprises use ConnectVM for high-availability web hosting, database clusters, and CI/CD pipelines.\n- **Primary Keywords:** cloud hosting use cases, SaaS cloud infrastructure, high availability cloud hosting, DevOps cloud platform, production database cloud\n- **URL Slug:** `/solutions/use-cases`\n\n---\n\n## 1. Hero Section\n\n**Eyebrow:** SOLUTIONS FOR MODERN TEAMS\n**H1:** Built for Real-World Production Workloads.\n**Subheadline:** Whether you are scaling a fast-growing SaaS platform, migrating legacy enterprise systems, or automating DevOps pipelines, ConnectVM provides the building blocks to architect resilient, cost-effective cloud solutions.\n\n**Primary CTA:** Explore Architectures \u2192\n**Secondary CTA:** Schedule a Solution Review\n\n---\n\n## 2. Core Use Cases\n\n### 1. Multi-Tier SaaS & High-Traffic Web Applications\n**The Challenge:** Growing SaaS platforms need strict security boundaries between web frontends and customer databases, plus the ability to scale compute and storage without downtime.\n**The ConnectVM Solution:**\n- Place load balancers and web servers on a public-facing tier with **Portable Public IPs**.\n- Isolate application workers and database servers on a **Private VPC Subnet** with zero public internet exposure.\n- Enforce **Stateful Security Groups** so only authorized application servers can query the database port.\n- Use **Anti-Affinity Placement** to ensure web instances run on separate physical hosts for high availability.\n\n---\n\n### 2. High-Availability Database Hosting (PostgreSQL, MySQL, Redis)\n**The Challenge:** Databases are highly sensitive to disk latency, noisy neighbors, and hardware drive failures.\n**The ConnectVM Solution:**\n- Deploy on **Memory-Optimized VMs** with dedicated resources and kernel-level isolation.\n- Store database files on **3x Replicated NVMe Block Volumes** for high IOPS and automatic protection against disk failure.\n- Expand database storage capacity online as your dataset grows\u2014without taking the database offline.\n- Take **Instant Volume Snapshots** before schema migrations for immediate point-in-time recovery.\n\n---\n\n### 3. Dev, Test, Staging & QA Environments\n**The Challenge:** Testing new code on environments that don't match production leads to deployment bugs, while running permanent duplicate environments 24/7 wastes budget.\n**The ConnectVM Solution:**\n- Clone production volumes or boot new VMs from **Production Snapshots** inside an isolated staging VPC.\n- Bootstrap identical environments automatically using **Cloud-Init** and golden images.\n- Tear down staging VMs when QA is complete\u2014paying only for the resources you actively use.\n\n---\n\n### 4. CI/CD Pipelines & Automated DevOps Runners\n**The Challenge:** Shared CI/CD runners are slow, rate-limited, and often lack the custom OS dependencies or security isolation required for enterprise builds.\n**The ConnectVM Solution:**\n- Host self-managed GitLab Runners, GitHub Actions Runners, or Jenkins agents on **Compute-Optimized VMs**.\n- Use the **ConnectVM REST API** to spin up ephemeral build VMs on demand and destroy them after the build completes.\n- Keep build artifacts and private container registries inside your private network for lightning-fast image pulls.\n\n---\n\n### 5. E-Commerce & Seasonal Traffic Scaling\n**The Challenge:** Online stores require rock-solid uptime, low-latency checkout pages, and the flexibility to scale up before flash sales or holiday peaks.\n**The ConnectVM Solution:**\n- Vertically resize VM vCPU/RAM or horizontally add web nodes behind a load balancer in minutes.\n- Use **Portable Public IPs** for instant blue-green cutovers when deploying major storefront updates.\n- Protect customer data with isolated private networks and granular firewall policies.\n\n---\n\n### 6. Enterprise Legacy Migration & Custom Appliances\n**The Challenge:** Enterprises often run specialized operating systems, custom security appliances, or legacy Windows/Linux applications that cannot be easily containerized or refactored for proprietary hyperscaler services.\n**The ConnectVM Solution:**\n- Upload custom `qcow2`, `raw`, or `ISO` images directly to ConnectVM.\n- Replicate your on-premises Layer-2/Layer-3 network subnets, custom private IP ranges, and multi-NIC routing topologies in the cloud.\n- Manage instances with full root/Administrator access and out-of-band VNC console support.\n\n---\n\n## 3. Architectural Comparison: Why Teams Switch to ConnectVM\n\n| Requirement | Traditional VPS | Hyperscalers (AWS/GCP/Azure) | ConnectVM Cloud Platform |\n| :--- | :--- | :--- | :--- |\n| **Portable / Floating Public IPs** | \u274c Tied to server | \u2705 Complex & costly | \u2705 **Included & instant reassignment** |\n| **Isolated Private VPC Networks** | \u274c Basic or shared VLAN | \u2705 Complex IAM & routing | \u2705 **Simple, self-service isolated VPCs** |\n| **Storage Durability** | \u26a0\ufe0f Local RAID only | \u2705 Network block storage | \u2705 **3x Replicated NVMe Block Storage** |\n| **Stateful Security Groups** | \u274c Manual OS firewall | \u2705 Included | \u2705 **Instant virtual NIC firewalling** |\n| **Billing & Egress Predictability** | \u2705 Simple | \u274c Unpredictable surprise bills | \u2705 **Transparent, predictable pricing** |\n\n---\n\n## 4. Call-to-Action\n\n**H2:** Not Sure Which Architecture Fits Your Workload?\n**Subheadline:** Our cloud engineers can help you design a secure, high-availability topology tailored to your application.\n**Primary CTA:** Launch Your First VM \u2192\n**Secondary CTA:** Talk to a Cloud Solutions Architect\n"}, {"id": "README", "filename": "README.md", "category": "Overview", "icon": "\ud83d\udccb", "label": "Master SEO & Content Map", "content": "# ConnectVM.com \u2014 Complete Website & Product Catalog Content Suite\n\n> **Brand Positioning:** Enterprise-Grade Cloud Infrastructure Built for Performance, Predictability, and Scale.\n> **Strict White-Label Policy:** All underlying enterprise cloud orchestration capabilities are presented natively under the **ConnectVM Cloud Platform** brand (zero disclosure of OpenStack).\n\n---\n\n## Product Navigation & Content Map\n\n| Menu Category | File | Key Products & Capabilities Covered |\n| :--- | :--- | :--- |\n| **00. Mega-Menu & Featured** | [`00-product-catalog-featured.md`](./00-product-catalog-featured.md) | Navigation Mega-Menu copy, Featured Flagship Products, Quick-Start Solutions |\n| **01. Homepage** | [`01-homepage.md`](./01-homepage.md) | Hero, Core Value Propositions, Full Platform Overview, Use Cases, FAQ |\n| **02. Compute** | [`02-compute.md`](./02-compute.md) | General Purpose VMs, Compute-Optimized, Memory-Optimized, Bare Metal, Auto-Scaling & Containers |\n| **03. SAP** | [`03-sap-solutions.md`](./03-sap-solutions.md) | SAP Business One, SAP S/4HANA & HANA High-Memory VMs, HA Failover Clustering, Automated Backups |\n| **04. Storage** | [`04-storage.md`](./04-storage.md) | 3x Replicated NVMe Block Storage, S3-Compatible Object Storage, Shared File Storage, Instant Snapshots |\n| **05. Networking & Public IP** | [`05-networking-and-public-ip.md`](./05-networking-and-public-ip.md) | Portable Public IPs (Elastic/Floating IPs), Isolated VPC, Cloud Load Balancers, Virtual Routers, Site-to-Site VPN |\n| **06. Database** | [`06-database.md`](./06-database.md) | High-IOPS PostgreSQL, MySQL/MariaDB, MongoDB, Redis In-Memory Clusters, Point-in-Time Recovery |\n| **07. Security** | [`07-security.md`](./07-security.md) | Stateful Security Groups, Network Micro-Segmentation, Role-Based Access (RBAC), DDoS Mitigation, Vault/Secrets |\n| **08. AI & ML** | [`08-ai-and-ml.md`](./08-ai-and-ml.md) | Cloud GPU Instances, Private LLM Hosting & Inference, Model Training Clusters, MLOps & Vector Databases |\n| **09. Analytics** | [`09-analytics.md`](./09-analytics.md) | Real-Time Analytics (ClickHouse, OpenSearch/ELK), Data Streaming (Kafka), High-Throughput Data Lakes |\n| **10. Management** | [`10-management.md`](./10-management.md) | ConnectVM Web Console, REST API & CLI, Terraform/Infrastructure-as-Code, Cloud-Init, Telemetry & Audit Trails |\n| **11. Cross-Industry Use Cases** | [`11-use-cases-and-solutions.md`](./11-use-cases-and-solutions.md) | End-to-End Reference Architectures & Competitor Comparison Matrix |\n"}];
+    let currentPageId = PAGES[0].id;
+    let isRawMode = false;
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',
+      fontFamily: 'Inter, sans-serif'
+    });
+
+    function initPortal() {
+      renderSidebar();
+      const hash = window.location.hash.replace('#', '');
+      const initialPage = PAGES.find(p => p.id === hash) ? hash : PAGES[0].id;
+      selectPage(initialPage);
+    }
+
+    function renderSidebar() {
+      const nav = document.getElementById('sidebarNav');
+      nav.innerHTML = PAGES.map(p => {
+        const active = p.id === currentPageId;
+        return `
+          <button
+            onclick="selectPage('${p.id}')"
+            class="w-full text-left px-3 py-2.5 rounded-lg text-xs font-medium transition flex items-center justify-between group ${
+              active
+                ? 'bg-sky-500/15 text-sky-300 border border-sky-500/30 font-semibold'
+                : 'text-slate-300 hover:bg-slate-800/80 hover:text-white border border-transparent'
+            }"
+          >
+            <span class="flex items-center gap-2.5 truncate">
+              <span class="text-base">${p.icon}</span>
+              <span class="truncate">${p.label}</span>
+            </span>
+            <span class="text-[10px] font-mono text-slate-500 group-hover:text-slate-400">${p.category}</span>
+          </button>
+        `;
+      }).join('');
+
+      // Update top product bar pills
+      document.querySelectorAll('.nav-pill').forEach(btn => {
+        const navId = btn.getAttribute('data-nav');
+        if (navId === currentPageId) {
+          btn.className = 'nav-pill shrink-0 px-3 py-1.5 rounded-md font-semibold bg-sky-500 text-slate-950 shadow-sm transition';
+        } else {
+          btn.className = 'nav-pill shrink-0 px-3 py-1.5 rounded-md font-medium bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white transition';
+        }
+      });
+    }
+
+    async function selectPage(pageId) {
+      const page = PAGES.find(p => p.id === pageId) || PAGES[0];
+      currentPageId = page.id;
+      window.location.hash = page.id;
+
+      renderSidebar();
+
+      document.getElementById('currentPageIcon').textContent = page.icon;
+      document.getElementById('currentPageLabel').textContent = page.label;
+      document.getElementById('currentPageFilename').textContent = page.filename;
+
+      const words = page.content.trim().split(/\s+/).length;
+      document.getElementById('wordCountBadge').textContent = `${words.toLocaleString()} words`;
+
+      // Setup download link
+      const blob = new Blob([page.content], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const dlBtn = document.getElementById('downloadMdBtn');
+      dlBtn.href = url;
+      dlBtn.download = page.filename;
+
+      // Raw content
+      document.getElementById('rawContent').textContent = page.content;
+
+      // Parse markdown and handle mermaid blocks
+      const renderer = new marked.Renderer();
+      const origCode = renderer.code.bind(renderer);
+      renderer.code = function(code, infostring, escaped) {
+        // Marked v12+ passes an object { text, lang }
+        let codeText = typeof code === 'object' ? code.text : code;
+        let lang = typeof code === 'object' ? code.lang : infostring;
+        if (lang === 'mermaid') {
+          return `<div class="mermaid-wrapper"><pre class="mermaid">${codeText}</pre></div>`;
+        }
+        return `<pre><code class="language-${lang || 'text'}">${escapeHtml(codeText)}</code></pre>`;
+      };
+
+      marked.setOptions({ renderer });
+      const html = marked.parse(page.content);
+      const container = document.getElementById('renderedContent');
+      container.innerHTML = html;
+
+      // Intercept internal .md links to switch tabs cleanly
+      container.querySelectorAll('a').forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (href.endsWith('.md')) {
+          a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = href.replace('./', '').replace('.md', '');
+            selectPage(targetId);
+          });
+        }
+      });
+
+      // Render mermaid diagrams
+      try {
+        await mermaid.run({
+          nodes: container.querySelectorAll('.mermaid')
+        });
+      } catch (err) {
+        console.warn('Mermaid render notice:', err);
+      }
+
+      // Prev / Next buttons
+      const idx = PAGES.findIndex(p => p.id === currentPageId);
+      const prevBtn = document.getElementById('prevPageBtn');
+      const nextBtn = document.getElementById('nextPageBtn');
+
+      if (idx > 0) {
+        prevBtn.style.visibility = 'visible';
+        prevBtn.innerHTML = `← ${PAGES[idx - 1].icon} ${PAGES[idx - 1].label}`;
+        prevBtn.onclick = () => selectPage(PAGES[idx - 1].id);
+      } else {
+        prevBtn.style.visibility = 'hidden';
+      }
+
+      if (idx < PAGES.length - 1) {
+        nextBtn.style.visibility = 'visible';
+        nextBtn.innerHTML = `${PAGES[idx + 1].icon} ${PAGES[idx + 1].label} →`;
+        nextBtn.onclick = () => selectPage(PAGES[idx + 1].id);
+      } else {
+        nextBtn.style.visibility = 'hidden';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleViewMode() {
+      isRawMode = !isRawMode;
+      const rendered = document.getElementById('renderedContent');
+      const raw = document.getElementById('rawContent');
+      const label = document.getElementById('viewModeLabel');
+      if (isRawMode) {
+        rendered.classList.add('hidden');
+        raw.classList.remove('hidden');
+        label.textContent = 'Rendered Preview';
+      } else {
+        raw.classList.add('hidden');
+        rendered.classList.remove('hidden');
+        label.textContent = 'Raw Markdown';
+      }
+    }
+
+    function copyCurrentMarkdown() {
+      const page = PAGES.find(p => p.id === currentPageId);
+      if (!page) return;
+      navigator.clipboard.writeText(page.content);
+      const btnText = document.getElementById('copyBtnText');
+      btnText.textContent = 'Copied! ✓';
+      setTimeout(() => {
+        btnText.textContent = 'Copy Page .MD';
+      }, 2000);
+    }
+
+    function handleSearch(query) {
+      const box = document.getElementById('searchResultsBox');
+      const list = document.getElementById('searchResultsList');
+      const countText = document.getElementById('searchCountText');
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        box.classList.add('hidden');
+        return;
+      }
+      const matches = [];
+      PAGES.forEach(p => {
+        const idx = p.content.toLowerCase().indexOf(q);
+        if (idx !== -1 || p.label.toLowerCase().includes(q)) {
+          const start = Math.max(0, idx - 50);
+          const snippet = idx !== -1 ? '...' + p.content.slice(start, idx + 110).replace(/\n/g, ' ') + '...' : p.filename;
+          matches.push({ page: p, snippet });
+        }
+      });
+
+      box.classList.remove('hidden');
+      countText.textContent = `Found in ${matches.length} page(s) for "${query}"`;
+      list.innerHTML = matches.map(m => `
+        <div onclick="selectPage('${m.page.id}')" class="p-2.5 rounded-lg bg-slate-800/70 hover:bg-slate-800 cursor-pointer border border-slate-700/60 transition">
+          <div class="text-xs font-semibold text-sky-300">${m.page.icon} ${m.page.label} <span class="text-slate-500 font-mono">(${m.page.filename})</span></div>
+          <div class="text-xs text-slate-400 truncate mt-0.5">${escapeHtml(m.snippet)}</div>
+        </div>
+      `).join('');
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('searchResultsBox').classList.add('hidden');
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', initPortal);
+  </script>
+</body>
+</html>
