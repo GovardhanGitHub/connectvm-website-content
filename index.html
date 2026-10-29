@@ -481,7 +481,11 @@
         .replace(/"/g, '&quot;');
     }
 
-    window.addEventListener('DOMContentLoaded', initPortal);
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initPortal);
+    } else {
+      initPortal();
+    }
   </script>
 </body>
 </html>
